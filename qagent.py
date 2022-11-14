@@ -1,5 +1,5 @@
 import numpy as np
-from pip._internal.utils.misc import tabulate
+from tabulate import tabulate
 import random
 
 class Qagent(object):
@@ -97,5 +97,5 @@ class Qagent(object):
         """
         headers = [f"Action {action}" for action in range(self.action_size)]
         showindex = [f"State {state}" for state in range(self.state_size)]
-        table = tabulate(self.qtable, headers=headers, showindex=showindex, tablefmt="fancy_grid")
+        table = tabulate(self.qtable,headers = headers, showindex=showindex)
         return f"{self.name}\n{table}"

@@ -3,8 +3,10 @@ import time
 import gym
 import numpy as np
 
+from helper_functions.visualize_plays import VisualizePlays
 from qagent import Qagent
-
+from matplotlib import pyplot
+from helper_functions import visualize_plays
 import gym_toytext
 
 def learn_to_play(agent: Qagent, max_game_steps: int = 10, total_episodes: int = 1000) -> Qagent:
@@ -86,3 +88,6 @@ exploration_parameters = {
 }
 q_agent_1 = Qagent(action_size, state_size, learning_parameters, exploration_parameters, name, color)
 q_agent_1 = learn_to_play(q_agent_1, max_game_steps=max_game_steps, total_episodes=total_episodes)
+plays = VisualizePlays(q_agent_1)
+plays.plot()
+print(q_agent_1)
