@@ -7,10 +7,10 @@ from rl.memory import SequentialMemory
 
 def build_model(states, actions):
     model = Sequential()
-    model.add(Dense(24, activation='relu', input_shape=states))
-    model.add(Dense(24, activation='relu',input_shape=states))
-    model.add(Dense(actions, activation='linear',input_shape=states))
-
+    model.add(Dense(24, activation='relu', input_shape = (1,3)))
+    model.add(Dense(24, activation='relu'))
+    model.add(Dense(6, activation='linear'))
+    model.add(Flatten())
     return model
 
 def build_agent(model, actions):
